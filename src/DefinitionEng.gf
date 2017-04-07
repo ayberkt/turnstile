@@ -1,12 +1,12 @@
 concrete DefinitionEng of Definition = open Prelude in {
-  flags lexer=lextext ; unlexer=unlextext ;
-
   param TypeRequirement = NoReq | YesReq;
 
   lincat
     Typ, Annotation, Declaration, CaseList, TypList, Definition = { s : Str };
     Declaration =  { s : Str };
-    Case = { s : Str ; $0 : Str };
+    Case = { s : Str };
+
+  lindef Id = \x -> { s = x };
 
   lin
     Unit        = { s = "unit" };
@@ -16,16 +16,12 @@ concrete DefinitionEng of Definition = open Prelude in {
     TypListLeaf t = { s = ("a" ++ t.s) };
     TypListCons t ts = { s = ("a" ++ t.s ++ "," ++ ts.s)};
 
-    Inductive x cs = {
-      s = ("The type" ++ x.s ++ "is inductively defined as follows:" ++ cs.s)
+    Inductive B = {
+      s = ("The type" ++ B.$0 ++ "is inductively defined as follows:" ++ B.s)
     };
 
-    TrivialConstructor name tyName = {
-      s = name.s ++ "is a" ++ tyName.s
-    };
-
-    OneArgumentConstructor name tyName arg1 ts = {
-      s = "TODO"
+    TrivialConstructor name id = {
+      s = name.s ++ "is a" ++ id.s
     };
 
     Empty = { s = "" };

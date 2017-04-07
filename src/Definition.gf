@@ -1,7 +1,7 @@
 abstract Definition = {
   flags startcat = Declaration;
 
-  cat Typ; CaseList; Annotation; Declaration; TypList; Case; Definition;
+  cat Typ; CaseList; Annotation; Declaration; TypList; Case; Definition; Id;
   cat Declaration;
 
   fun
@@ -9,13 +9,13 @@ abstract Definition = {
     Nat        : Typ;
 
     TypListEmpty : TypList;
-    TypListLeaf : Typ -> TypList;
-    TypListCons : Typ -> TypList -> TypList;
+    TypListLeaf  : Typ -> TypList;
+    TypListCons  : Typ -> TypList -> TypList;
+    AnId : Id;
 
-    TrivialConstructor : String -> String -> Case;
-    OneArgumentConstructor : String -> String -> Typ -> Case;
+    TrivialConstructor : String -> Id -> Case;
 
-    Inductive  : String -> CaseList -> Definition;
+    Inductive  : (Id -> CaseList) -> Definition;
     Empty      : CaseList;
     Cons       : Case -> CaseList -> CaseList;
     TypeDeclaration : Definition -> Declaration;

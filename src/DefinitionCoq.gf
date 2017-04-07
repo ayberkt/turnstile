@@ -5,10 +5,8 @@ concrete DefinitionCoq of Definition = open Prelude in {
 
   lincat
     Typ, Annotation, Declaration, CaseList, TypList, Definition = { s : Str };
+    Declaration, Case = { s : Str };
 
-    Declaration = { s : Str };
-
-    Case = { s : Str ; $0 : Str};
 
   lin
     Unit = { s = "unit" };
@@ -18,16 +16,12 @@ concrete DefinitionCoq of Definition = open Prelude in {
     TypListLeaf t = { s = t.s };
     TypListCons t ts = { s = (t.s ++ "->" ++ ts.s)};
 
-    Inductive x cs = {
-      s = (x.s ++ ":=" ++ cs.s)
+    Inductive B = {
+      s = (B.$0 ++ ":=" ++ B.s)
     };
 
-    TrivialConstructor name tyName = {
-      s = name.s ++ ":" ++ tyName.s
-    };
-
-    OneArgumentConstructor tyName name ts = {
-      s = "given" ++ ts.s ++ "," ++ name.s
+    TrivialConstructor name Id = {
+      s = name.s ++ ":" ++ Id.s
     };
 
     Empty = { s = "" };
