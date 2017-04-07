@@ -1,0 +1,3 @@
+Definition. The type Bool is inductively defined as follows:
+- True is a Bool
+- False is a Bool

@@ -1,0 +1,3 @@
+Definition. The type Nat is defined inductively as follows:
+- Zero is a Nat
+- Given a Nat x, Succ x is a Nat
