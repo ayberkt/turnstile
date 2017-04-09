@@ -11,9 +11,11 @@ abstract Definition = {
     TypListEmpty : TypList;
     TypListLeaf  : Typ -> TypList;
     TypListCons  : Typ -> TypList -> TypList;
-    AnId : Id;
+
+    TypApp : Id -> Id -> Typ;
 
     TrivialConstructor : String -> Id -> Case;
+    OneArgumentConstructor : Id -> Id -> (Id -> Id -> Typ) -> Case;
 
     Inductive  : (Id -> CaseList) -> Definition;
     Empty      : CaseList;
