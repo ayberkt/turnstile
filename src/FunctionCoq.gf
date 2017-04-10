@@ -1,9 +1,9 @@
 concrete FunctionCoq of Function = {
   flags
-    startcat = Expr;
+    startcat = Exp;
 
   lincat
-    Expr = { s : Str};
+    Exp = { s : Str};
 
   lin
     OneArgFunDef B = {
@@ -12,6 +12,13 @@ concrete FunctionCoq of Function = {
 
     TwoArgFunDef B = {
       s = "fun" ++ B.$1 ++ B.$0 ++ "=>" ++ B.s;
+    };
+
+    TwoCasePatMatch e c1 e1 c2 e2 = {
+      s = "match" ++ e.s ++ "with" ++
+          "|" ++ c1.s ++ "=>" ++ e1.s ++
+          "|" ++ c2.s ++ "=>" ++ e2.s ++
+          "end"
     };
 
     AnArg = { s = "x1" };

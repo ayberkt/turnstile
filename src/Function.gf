@@ -1,14 +1,15 @@
-abstract Function = {
+abstract Function = Definition ** {
   flags
     lexer   = lexcode;
     unlexer = unlexcode;
 
-  cat Expr; Arg;
+  cat Arg;
 
   fun
-    Var : Arg -> Expr;
-    OneArgFunDef : (Arg -> Expr) -> Expr;
-    TwoArgFunDef : (Arg -> Arg -> Expr) -> Expr;
-    App : Expr -> Expr -> Expr;
+    Var : Arg -> Exp;
+    OneArgFunDef : (Arg -> Exp) -> Exp;
+    TwoArgFunDef : (Arg -> Arg -> Exp) -> Exp;
+    TwoCasePatMatch : Exp -> Exp -> Exp -> Exp -> Exp -> Exp;
+    App : Exp -> Exp -> Exp;
     AnArg : Arg;
 }
