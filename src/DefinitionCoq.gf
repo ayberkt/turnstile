@@ -4,18 +4,10 @@ concrete DefinitionCoq of Definition = open Prelude in {
   param TypeRequirement = NoReq | YesReq;
 
   lincat
-    Typ, Annotation, Declaration, CaseList, TypList, Definition = { s : Str };
+    Annotation, Declaration, CaseList, TypList, Definition = { s : Str };
     Declaration, Case = { s : Str };
 
-
   lin
-    Unit = { s = "unit" };
-    Nat = { s = "nat" };
-
-    TypListEmpty = { s = "" };
-    TypListLeaf t = { s = t.s };
-    TypListCons t ts = { s = (t.s ++ "->" ++ ts.s)};
-
     Inductive B = {
       s = (B.$0 ++ ":=" ++ B.s)
     };

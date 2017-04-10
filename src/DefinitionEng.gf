@@ -2,20 +2,13 @@ concrete DefinitionEng of Definition = open Prelude in {
   flags
     startcat = Declaration;
   lincat
-    Typ, Annotation, Declaration, CaseList, TypList, Definition = { s : Str };
+    Annotation, Declaration, CaseList, TypList, Definition = { s : Str };
     Declaration =  { s : Str };
     Case = { s : Str };
 
   lindef Id = \x -> { s = x };
 
   lin
-    Unit        = { s = "unit" };
-    Nat         = { s = "nat" };
-
-    TypListEmpty = { s = "" };
-    TypListLeaf t = { s = ("a" ++ t.s) };
-    TypListCons t ts = { s = ("a" ++ t.s ++ "," ++ ts.s)};
-
     Inductive B = {
       s = ("The type" ++ B.$0 ++ "is defined as follows:" ++ B.s)
     };
