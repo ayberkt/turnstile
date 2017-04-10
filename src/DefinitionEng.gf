@@ -26,7 +26,7 @@ concrete DefinitionEng of Definition = open Prelude in {
     };
 
     Empty = { s = "" };
-    Cons t cs = { s = ("-" ++ t.s ++ cs.s) };
+    Cons t cs = { s = ("\n-" ++ t.s ++ cs.s) };
 
     TypeDeclaration d = { s = "Definition." ++ d.s };
 }
