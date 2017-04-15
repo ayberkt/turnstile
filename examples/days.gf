@@ -1,5 +1,5 @@
 linearize
-  (TypeDeclaration
+  (TypeDefinition
       (Inductive (\day ->
           Cons (TrivialConstructor "monday" day)
            (Cons (TrivialConstructor "tuesday" day)
