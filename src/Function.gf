@@ -1,4 +1,4 @@
-abstract Function = Definition ** {
+abstract Function = {
   flags
     lexer   = lexcode;
     unlexer = unlexcode;

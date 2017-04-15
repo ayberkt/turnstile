@@ -1,8 +1,8 @@
 abstract Definition = {
   flags startcat = Declaration;
 
-  cat Typ; CaseList; Annotation; Declaration; TypList; Case; Definition; Id;
-  cat Declaration; Exp;
+  cat CaseList; Annotation; Declaration; TypList; Case; Id;
+  cat Declaration;
 
   fun
 
