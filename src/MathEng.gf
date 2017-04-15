@@ -12,6 +12,10 @@ concrete MathEng of Math = {
 
   lin
 
+    TypeDefinition d = ss ("Definition." ++ d.s);
+
+    FnDefinition B = ss ("Function definition." ++ B.$0 ++ "is" ++ B.s);
+
     Inductive B = ss ("The type" ++ B.$0 ++ "is defined as follows:" ++ B.s);
 
     TrivialConstructor name id = { s = name.s ++ "is a" ++ id.s };
@@ -24,8 +28,6 @@ concrete MathEng of Math = {
 
     Empty = { s = "" };
     Cons t cs = { s = ("\n-" ++ t.s ++ cs.s) };
-
-    TypeDefinition d = ss ("Definition." ++ d.s);
 
     OneArgFunDef B = ss ("a function that maps" ++ B.$0 ++ "to" ++ B.s);
 
