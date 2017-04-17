@@ -1,5 +1,5 @@
 linearize
-  (TypeDefinition
+  (TypeDeclaration
     (Inductive
       (\Nat -> Cons
         (TrivialConstructor "Zero" Nat)

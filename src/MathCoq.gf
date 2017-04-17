@@ -12,11 +12,13 @@ concrete MathCoq of Math = {
 
   lin
 
-    TypeDefinition d = ss ("Inductive" ++ d.s);
+    TypeDeclaration d = ss ("Inductive" ++ d.s ++ ".");
 
-    FnDefinition B = {
-      s = "Definition" ++ B.$0 ++ ":=" ++ B.s;
+    FnDeclaration B = {
+      s = "Definition" ++ B.$0 ++ ":=" ++ B.s ++ ".";
     };
+
+    SeqDeclaration d1 d2 = ss (d1.s ++ "\n\n" ++ d2.s);
 
     Inductive B = ss (B.$0 ++ ":=" ++ B.s);
 

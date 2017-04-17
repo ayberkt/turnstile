@@ -7,8 +7,10 @@ abstract Math = {
 
   fun
 
-    TypeDefinition : Definition -> Declaration;
-    FnDefinition   : (Name -> Exp) -> Exp;
+    TypeDeclaration : Definition -> Declaration;
+
+    FnDeclaration  : (Name -> Exp) -> Declaration;
+    SeqDeclaration : Declaration -> Declaration -> Declaration;
 
     -- FUNCTIONS
 
@@ -17,6 +19,7 @@ abstract Math = {
     TwoArgFunDef : (Arg -> Arg -> Exp) -> Exp;
     TwoCasePatMatch : Exp -> Exp -> Exp -> Exp -> Exp -> Exp;
     App : Exp -> Exp -> Exp;
+    ConstructorExp : Id -> Exp;
     AnArg : Arg;
 
     -- Type Definitions
