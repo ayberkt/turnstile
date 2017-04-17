@@ -17,6 +17,7 @@ abstract Math = {
     TwoArgFunDef : (Arg -> Arg -> Exp) -> Exp;
     TwoCasePatMatch : Exp -> Exp -> Exp -> Exp -> Exp -> Exp;
     App : Exp -> Exp -> Exp;
+    ConstructorExp : Id -> Exp;
     AnArg : Arg;
 
     -- Type Definitions
