@@ -1,1 +1,1 @@
-linearize (TypeDeclaration (Inductive (\Bool -> Cons (TrivialConstructor "True" Bool) (Cons (TrivialConstructor "False" Bool) Empty))))
+linearize (TypeDefinition (Inductive (\Bool -> Cons (TrivialConstructor "True" Bool) (Cons (TrivialConstructor "False" Bool) Empty))))
