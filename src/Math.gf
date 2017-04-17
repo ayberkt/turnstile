@@ -7,8 +7,10 @@ abstract Math = {
 
   fun
 
-    TypeDefinition : Definition -> Declaration;
-    FnDefinition   : (Name -> Exp) -> Exp;
+    TypeDeclaration : Definition -> Declaration;
+
+    FnDeclaration  : (Name -> Exp) -> Declaration;
+    SeqDeclaration : Declaration -> Declaration -> Declaration;
 
     -- FUNCTIONS
 
