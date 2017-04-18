@@ -21,6 +21,10 @@ concrete MathEng of Math = {
 
     FnDeclaration fnName e = ss ("is" ++ e.s);
 
+   -----------------------------------------------------------------------------
+   -- TYPE DEFINITIONS
+   -----------------------------------------------------------------------------
+
     Inductive typName cs =
       ss ("is a type that is defined as follows:" ++ cs.s);
 
@@ -29,6 +33,10 @@ concrete MathEng of Math = {
     OneArgumentConstructor id1 id2 B = {
       s = "given a" ++ B.$0 ++ "of type" ++ id1.s ++ B.s ++ "is a" ++ id2.s
     };
+
+   -----------------------------------------------------------------------------
+   -- FUNCTION DEFINITIONS
+   -----------------------------------------------------------------------------
 
     TypApp a b = { s = a.s ++ "applied to" ++ b.s };
 
