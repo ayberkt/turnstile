@@ -12,11 +12,12 @@ concrete MathEng of Math = {
 
   lin
 
-    SeqDeclaration d1 d2 = ss (d1.s ++ ";\n\n" ++ d2.s);
+    SeqDeclaration B d2 =
+      ss ("Function definition." ++ B.$0 ++ B.s ++ ";\n\n" ++ d2.s);
 
     TypeDeclaration d = ss ("Definition." ++ d.s);
 
-    FnDeclaration B = ss ("Function definition." ++ B.$0 ++ "is" ++ B.s);
+    FnDeclaration fnName e = ss ("is" ++ e.s);
 
     Inductive B = ss ("The type" ++ B.$0 ++ "is defined as follows:" ++ B.s);
 

@@ -9,8 +9,8 @@ abstract Math = {
 
     TypeDeclaration : Definition -> Declaration;
 
-    FnDeclaration  : (Name -> Exp) -> Declaration;
-    SeqDeclaration : Declaration -> Declaration -> Declaration;
+    FnDeclaration  : Name -> Exp -> Declaration;
+    SeqDeclaration : (Name -> Declaration) -> Declaration -> Declaration;
 
     -- FUNCTIONS
 
