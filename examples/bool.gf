@@ -1,1 +1,8 @@
-linearize (TypeDeclaration (Inductive (\Bool -> Cons (TrivialConstructor "True" Bool) (Cons (TrivialConstructor "False" Bool) Empty))))
+linearize (SeqDeclaration (\bool ->
+  (TypeDeclaration bool
+    (Inductive bool
+      (Cons
+        (TrivialConstructor "true"  bool)
+          (Cons (TrivialConstructor "false" bool)
+            Empty)))))
+    EmptyDeclaration)

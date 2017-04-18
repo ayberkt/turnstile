@@ -1,6 +1,6 @@
 concrete MathCoq of Math = {
   lincat
-    Annotation, Declaration, CaseList, TypList, Definition = { s : Str };
+    Annotation, Declaration, CaseList, TypList, TypeDefinition = { s : Str };
     Declaration = { s : Str };
     Case = { s : Str };
     Arg = { s : Str };
@@ -12,15 +12,18 @@ concrete MathCoq of Math = {
 
   lin
 
-    TypeDeclaration d = ss ("Inductive" ++ d.s ++ ".");
+    TypeDeclaration typName d =
+      ss ("Inductive" ++ typName.s ++  ":=" ++ d.s ++ ".");
 
     FnDeclaration fnName e  = {
       s = "Definition" ++ fnName.s ++ ":=" ++ e.s ++ ".";
     };
 
+    EmptyDeclaration = ss "";
+
     SeqDeclaration B d2 = ss (B.s ++ "\n\n" ++ d2.s);
 
-    Inductive B = ss (B.$0 ++ ":=" ++ B.s);
+    Inductive typName cs = ss cs.s;
 
     TrivialConstructor name Id = ss (name.s ++ ":" ++ Id.s);
 

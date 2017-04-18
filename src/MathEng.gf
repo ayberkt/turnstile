@@ -1,6 +1,6 @@
 concrete MathEng of Math = {
   lincat
-    Annotation, Declaration, CaseList, TypList, Definition = { s : Str };
+    Annotation, Declaration, CaseList, TypList, TypeDefinition = { s : Str };
     Declaration = { s : Str };
     Case = { s : Str };
     Arg = { s : Str };
@@ -13,13 +13,16 @@ concrete MathEng of Math = {
   lin
 
     SeqDeclaration B d2 =
-      ss ("Function definition." ++ B.$0 ++ B.s ++ ";\n\n" ++ d2.s);
+      ss ("Definition." ++ B.$0 ++ B.s ++ ";\n\n" ++ d2.s);
 
-    TypeDeclaration d = ss ("Definition." ++ d.s);
+    TypeDeclaration typName d = ss d.s;
+
+    EmptyDeclaration = ss "";
 
     FnDeclaration fnName e = ss ("is" ++ e.s);
 
-    Inductive B = ss ("The type" ++ B.$0 ++ "is defined as follows:" ++ B.s);
+    Inductive typName cs =
+      ss ("is a type that is defined as follows:" ++ cs.s);
 
     TrivialConstructor name id = { s = name.s ++ "is a" ++ id.s };
 

@@ -1,16 +1,17 @@
 abstract Math = {
 
   cat
-    Declaration; Name; Exp; Definition;
+    Declaration; Name; Exp; TypeDefinition;
     CaseList; Annotation; TypList; Case; Id;
     Arg;
 
   fun
 
-    TypeDeclaration : Definition -> Declaration;
+    TypeDeclaration : Name -> TypeDefinition -> Declaration;
 
-    FnDeclaration  : Name -> Exp -> Declaration;
+    FnDeclaration : Name -> Exp -> Declaration;
     SeqDeclaration : (Name -> Declaration) -> Declaration -> Declaration;
+    EmptyDeclaration : Declaration;
 
     -- FUNCTIONS
 
@@ -26,10 +27,10 @@ abstract Math = {
 
     TypApp : Id -> Id -> Exp;
 
-    TrivialConstructor : String -> Id -> Case;
+    TrivialConstructor : String -> Name -> Case;
     OneArgumentConstructor : Id -> Id -> (Id -> Id -> Exp) -> Case;
 
-    Inductive  : (Id -> CaseList) -> Definition;
+    Inductive : Name -> CaseList -> TypeDefinition;
     Empty      : CaseList;
     Cons       : Case -> CaseList -> CaseList;
 }
