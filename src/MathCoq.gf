@@ -25,7 +25,7 @@ concrete MathCoq of Math = {
     TrivialConstructor name Id = ss (name.s ++ ":" ++ Id.s);
 
     OneArgumentConstructor id1 id2 B = {
-      s = "given a" ++ B.$0 ++ "of type" ++ id1.s ++ B.s ++ "is a" ++ id2.s
+      s = B.$1 ++ ":" ++ id1.s ++ "->" ++ id2.s
     };
 
     TypApp a b = ss (a.s ++ b.s);
