@@ -12,14 +12,13 @@ concrete MathEng of Math = {
 
   lin
 
-    SeqDeclaration B d2 =
-      ss ("Definition." ++ B.$0 ++ B.s ++ ";\n\n" ++ d2.s);
+    TypeDeclaration B dec =
+      ss ("Type declaration." ++ B.s ++ ";\n" ++ dec.s);
 
-    TypeDeclaration typName d = ss d.s;
+    FnDeclaration B dec =
+      ss ("Function declaration." ++ B.$0 ++ "is" ++ B.s ++ ";\n" ++ dec.s);
 
     EmptyDeclaration = ss "";
-
-    FnDeclaration fnName e = ss ("is" ++ e.s);
 
    -----------------------------------------------------------------------------
    -- TYPE DEFINITIONS
@@ -57,6 +56,8 @@ concrete MathEng of Math = {
     AnArg = ss "x1";
 
     Var x = { s = x.s };
+
+    FunName x = ss x.s;
 
     App f x = ss ("(" ++ f.s ++ x.s ++ ")");
 
