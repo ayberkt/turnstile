@@ -28,7 +28,7 @@ abstract Math = {
     TypApp : Id -> Id -> Exp;
 
     TrivialConstructor : String -> Name -> Case;
-    OneArgumentConstructor : Id -> Id -> (Id -> Id -> Exp) -> Case;
+    OneArgumentConstructor : Name -> Name -> (Id -> Id -> Exp) -> Case;
 
     Inductive : Name -> CaseList -> TypeDefinition;
     Empty      : CaseList;

@@ -1,7 +1,9 @@
 linearize
-  (TypeDeclaration
-    (Inductive
-      (\Nat -> Cons
-        (TrivialConstructor "Zero" Nat)
+  (SeqDeclaration (\nat ->
+    (TypeDeclaration nat
+      (Inductive nat
         (Cons
-          (OneArgumentConstructor Nat Nat (\Succ -> (\x -> TypApp Succ x))) Empty))))
+          (OneArgumentConstructor nat nat (\Succ -> (\x -> TypApp Succ x)))
+            (Cons (TrivialConstructor "zero" nat)
+              Empty)))))
+      EmptyDeclaration)
