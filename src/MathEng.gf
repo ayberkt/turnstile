@@ -12,11 +12,9 @@ concrete MathEng of Math = {
 
   lin
 
-    TypeDeclaration B dec =
-      ss ("Type declaration." ++ B.s ++ ";\n" ++ dec.s);
+    SeqDeclaration B = ss (B.$0 ++ "is defined as" ++ B.s);
 
-    FnDeclaration B dec =
-      ss ("Function declaration." ++ B.$0 ++ "is" ++ B.s ++ ";\n" ++ dec.s);
+    Pair e dec = ss (e.s ++ ";\n" ++ dec.s);
 
     EmptyDeclaration = ss "";
 

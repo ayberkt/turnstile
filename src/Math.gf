@@ -2,13 +2,14 @@ abstract Math = {
 
   cat
     Declaration; Name; Exp; TypeDefinition;
-    CaseList; Annotation; TypList; Case; Id;
+    CaseList; Annotation; TypList; Case; Id; ExpAndDeclaration;
     Arg;
 
   fun
 
-    FnDeclaration    : (Name -> Exp)            -> Declaration -> Declaration;
-    TypeDeclaration  : (Name -> TypeDefinition) -> Declaration -> Declaration;
+    Pair : Exp  -> Declaration -> ExpAndDeclaration;
+
+    SeqDeclaration : (Name -> ExpAndDeclaration) -> Declaration;
     EmptyDeclaration : Declaration;
 
     -- FUNCTIONS
