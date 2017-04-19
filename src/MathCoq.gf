@@ -12,11 +12,9 @@ concrete MathCoq of Math = {
 
   lin
 
-    TypeDeclaration B dec =
-      ss ("Inductive" ++ B.$0 ++ ":=" ++ B.s ++ ".\n" ++ dec.s);
+    SeqFunDeclaration B = ss ("Definition" ++ B.$0 ++ ":=" ++ B.s );
 
-    FnDeclaration B dec =
-      ss ("Definition" ++ B.$0 ++ ":=" ++ B.s ++ ".\n" ++ dec.s);
+    PairExp e dec = ss (e.s ++ ".\n" ++ dec.s);
 
     EmptyDeclaration = ss "";
 
@@ -47,6 +45,8 @@ concrete MathCoq of Math = {
     AnArg = ss "x1";
 
     Var x = { s = x.s };
+
+    FunName x = ss x.s;
 
     App f x = ss ("(" ++ f.s ++ x.s ++ ")");
 

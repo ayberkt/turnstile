@@ -12,9 +12,9 @@ concrete MathEng of Math = {
 
   lin
 
-    SeqDeclaration B = ss (B.$0 ++ "is defined as" ++ B.s);
+    SeqFunDeclaration B = ss ("Definition" ++ B.$0 ++ "is defined as" ++ B.s);
 
-    Pair e dec = ss (e.s ++ ";\n" ++ dec.s);
+    PairExp e dec = ss (e.s ++ ";\n" ++ dec.s);
 
     EmptyDeclaration = ss "";
 
@@ -57,7 +57,7 @@ concrete MathEng of Math = {
 
     FunName x = ss x.s;
 
-    App f x = ss ("(" ++ f.s ++ x.s ++ ")");
+    App f x = ss (f.s ++ "applied to" ++ x.s);
 
   oper ss : Str -> { s : Str } = \x -> { s = x};
 }

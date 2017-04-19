@@ -7,9 +7,9 @@ abstract Math = {
 
   fun
 
-    Pair : Exp  -> Declaration -> ExpAndDeclaration;
+    PairExp : Exp  -> Declaration -> ExpAndDeclaration;
 
-    SeqDeclaration : (Name -> ExpAndDeclaration) -> Declaration;
+    SeqFunDeclaration : (Name -> ExpAndDeclaration) -> Declaration;
     EmptyDeclaration : Declaration;
 
     -- FUNCTIONS
