@@ -2,14 +2,17 @@ abstract Math = {
 
   cat
     Declaration; Name; Exp; TypeDefinition;
-    CaseList; Annotation; TypList; Case; Id; ExpAndDeclaration;
+    CaseList; Annotation; TypList; Case; Id;
+    ExpAndDeclaration; InductiveAndDeclaration;
     Arg;
 
   fun
 
     PairExp : Exp  -> Declaration -> ExpAndDeclaration;
+    PairInductive : TypeDefinition -> Declaration -> InductiveAndDeclaration;
 
-    SeqFunDeclaration : (Name -> ExpAndDeclaration) -> Declaration;
+    SeqFunDeclaration  : (Name -> ExpAndDeclaration) -> Declaration;
+    SeqTypeDeclaration : (Name -> InductiveAndDeclaration) -> Declaration;
     EmptyDeclaration : Declaration;
 
     -- FUNCTIONS
@@ -20,6 +23,7 @@ abstract Math = {
     TwoCasePatMatch : Exp -> Exp -> Exp -> Exp -> Exp -> Exp;
     App : Exp -> Exp -> Exp;
     FunName : Name -> Exp;
+    FreeConstructor : String -> Exp;
     ConstructorExp : Id -> Exp;
     AnArg : Arg;
 

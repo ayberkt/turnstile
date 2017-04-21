@@ -1,4 +1,7 @@
 concrete MathCoq of Math = {
+  flags
+    lexer = lexcode;
+    unlexer = unlexcode;
   lincat
     Annotation, Declaration, CaseList, TypList, TypeDefinition = { s : Str };
     Declaration = { s : Str };
@@ -12,9 +15,13 @@ concrete MathCoq of Math = {
 
   lin
 
-    SeqFunDeclaration B = ss ("Definition" ++ B.$0 ++ ":=" ++ B.s );
+    SeqFunDeclaration B = ss ("Definition" ++ B.$0 ++ ":=" ++ B.s);
 
-    PairExp e dec = ss (e.s ++ ".\n" ++ dec.s);
+    SeqTypeDeclaration B = ss ("Inductive" ++ B.$0 ++ ":=" ++ B.s);
+
+    PairExp e dec = ss (e.s ++ ".\n\n" ++ dec.s);
+
+    PairInductive e dec = ss (e.s ++ ".\n\n" ++ dec.s);
 
     EmptyDeclaration = ss "";
 
@@ -41,6 +48,8 @@ concrete MathCoq of Math = {
           "|" ++ c2.s ++ "=>" ++ e2.s ++
           "end"
     };
+
+    FreeConstructor s = ss s.s;
 
     AnArg = ss "x1";
 

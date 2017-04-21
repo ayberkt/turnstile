@@ -1,4 +1,10 @@
 concrete MathEng of Math = {
+  flags
+    lexer = lextext;
+    unlexer = unlextext;
+
+  param Mode = Colloq | Formal;
+
   lincat
     Annotation, Declaration, CaseList, TypList, TypeDefinition = { s : Str };
     Declaration = { s : Str };
@@ -12,9 +18,15 @@ concrete MathEng of Math = {
 
   lin
 
-    SeqFunDeclaration B = ss ("Definition" ++ B.$0 ++ "is defined as" ++ B.s);
+    SeqFunDeclaration B =
+      ss ("Function definition." ++ B.$0 ++ "is defined as" ++ B.s);
 
-    PairExp e dec = ss (e.s ++ ";\n" ++ dec.s);
+    SeqTypeDeclaration B =
+      ss ("The type" ++ B.$0 ++ "is defined as follows:\n" ++ B.s);
+
+    PairExp e dec = ss (e.s ++ ";\n\n" ++ dec.s);
+
+    PairInductive e dec = ss (e.s ++ ";\n" ++ dec.s);
 
     EmptyDeclaration = ss "";
 
@@ -23,7 +35,7 @@ concrete MathEng of Math = {
    -----------------------------------------------------------------------------
 
     Inductive typName cs =
-      ss ("is a type that is defined as follows:" ++ cs.s);
+      ss cs.s;
 
     TrivialConstructor name id = { s = name.s ++ "is a" ++ id.s };
 
@@ -46,10 +58,9 @@ concrete MathEng of Math = {
       s = "a function that takes" ++ B.$1 ++ "and" ++ B.$0 ++ "returns" ++ B.s;
     };
 
-    TwoCasePatMatch e c1 e1 c2 e2 = {
-      s = e1.s ++ "if" ++ e.s ++ "has the form" ++ e1.s ++
-          "and" ++ e2.s ++ "if it has the form" ++ c2.s
-    };
+    TwoCasePatMatch e c1 e1 c2 e2 = mkPatMatch e.s c1.s e1.s c2.s e2.s Colloq;
+
+    FreeConstructor s = ss s.s;
 
     AnArg = ss "x1";
 
@@ -60,4 +71,13 @@ concrete MathEng of Math = {
     App f x = ss (f.s ++ "applied to" ++ x.s);
 
   oper ss : Str -> { s : Str } = \x -> { s = x};
+
+  oper mkPatMatch : Str -> Str -> Str -> Str -> Str -> Mode -> { s : Str } =
+    \e -> \c1 -> \e1 -> \c2 -> \e2 -> \m ->
+      case m of {
+        Colloq =>
+          ss (e1 ++ "if" ++ e ++ "is" ++ c1 ++ ", and otherwise"
+              ++ e2 ++ "if it is" ++ c2);
+        Formal => ss "todo"
+      };
 }
